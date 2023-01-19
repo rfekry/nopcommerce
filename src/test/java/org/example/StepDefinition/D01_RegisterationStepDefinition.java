@@ -6,9 +6,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+
 
 
 public class D01_RegisterationStepDefinition {
@@ -31,7 +33,7 @@ public class D01_RegisterationStepDefinition {
         register.LastNamePOM().clear();
         register.LastNamePOM().sendKeys("Fekry");
         //Add DOB: Dropdown selection
-        register.EmailPOM().sendKeys("randa3111@hotmail.com");
+        register.EmailPOM().sendKeys("randa31@hotmail.com");
         Thread.sleep(2000);
         register.PasswordPOM().sendKeys("Hello123");
         register.ConfirmPasswordPOM().sendKeys("Hello123");
@@ -56,6 +58,7 @@ public class D01_RegisterationStepDefinition {
         String actualResult = register.registerResultPOM().getText();
         System.out.println(actualResult);
         //using Junit
+       // Assert.assertEquals(actualResult.contains(expectedResult));
         Assert.assertTrue(actualResult.contains(expectedResult));
        // Assert.assertEquals(actualResult.contains(expectedResult), true);
 
