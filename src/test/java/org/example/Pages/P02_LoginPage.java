@@ -1,4 +1,4 @@
 package org.example.Pages;
 
-public class LoginPage {
+public class P02_LoginPage {
 }
