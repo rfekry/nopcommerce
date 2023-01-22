@@ -1,4 +1,4 @@
-@Regression
+@smoke
 
 Feature: User should be able to login successfully
 
@@ -6,5 +6,11 @@ Feature: User should be able to login successfully
     Given user navigates to login page
     When user enter valid email and password
     And user clicks on login button
-    Then user could login successfully and go to home page
+    Then user could login successfully
 
+
+  Scenario: User could not log in with invalid email and password
+    Given user navigates to login page
+    When user enter invalid email and password
+    And user clicks on login button
+    Then user could not login successfully

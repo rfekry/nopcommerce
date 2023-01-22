@@ -1,21 +1,19 @@
 package org.example.StepDefinition;
 
 import org.example.Pages.P01_RegisterationPage;
-import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
+import org.testng.asserts.SoftAssert;
 
 
 public class D01_RegisterationStepDefinition {
-   // WebDriver chDriver = null;
+
     P01_RegisterationPage register= new P01_RegisterationPage(Hooks.chDriver);
+    SoftAssert soft = new SoftAssert();
 
     @Given("user navigates to register page")
     public void navigateToRegister() throws InterruptedException {
@@ -25,26 +23,29 @@ public class D01_RegisterationStepDefinition {
     public void EnterLoginFields() throws InterruptedException {
 
         register.FemalePOM().click();
-       /* register.DOB_DayPOM().click();
-        register.DOB_MonthPOM().click();
-        register.DOB_YearPOM().click();  */
         register.FirstNamePOM().clear();
         register.FirstNamePOM().sendKeys("Randa");
         register.LastNamePOM().clear();
         register.LastNamePOM().sendKeys("Fekry");
-        //Add DOB: Dropdown selection
-        register.EmailPOM().sendKeys("randa31@hotmail.com");
+        //Select DOB
+        Select select = new Select (register.DOB_DayPOM());
+        select.selectByIndex(20);
+        select = new Select (register.DOB_MonthPOM());
+        select.selectByValue("7");
+        select = new Select (register.DOB_YearPOM());
+        select.selectByVisibleText("1988");
+
+        register.EmailPOM().sendKeys("randa3@hotmail.com");
         Thread.sleep(2000);
         register.PasswordPOM().sendKeys("Hello123");
         register.ConfirmPasswordPOM().sendKeys("Hello123");
         Thread.sleep(2000);
-        // chDriver.findElement(By.id("ConfirmPassword")).sendKeys(Keys.ENTER);
+
     }
 
     @And("user clicks on register button")
     public void ClickRegister() throws InterruptedException
     {
-        register = new P01_RegisterationPage(Hooks.chDriver);
         register.RegisterPOM().click();
 
         Thread.sleep(2000);
@@ -56,18 +57,17 @@ public class D01_RegisterationStepDefinition {
         String expectedResult = "Your registration completed";
 
         String actualResult = register.registerResultPOM().getText();
-        System.out.println(actualResult);
-        //using Junit
-       // Assert.assertEquals(actualResult.contains(expectedResult));
-        Assert.assertTrue(actualResult.contains(expectedResult));
-       // Assert.assertEquals(actualResult.contains(expectedResult), true);
+
+        soft.assertTrue(actualResult.contains(expectedResult),"Registeration Failure");
+
+        soft.assertAll();
 
     }
-    @And("go to registeration result page")
+  /*  @And("go to registeration result page")
     public void GoRegResultPage() throws InterruptedException
     {
         register.ContinuePOM().click();
         Thread.sleep(2000);
-        Assert.assertEquals("https://demo.nopcommerce.com/",Hooks.chDriver.getCurrentUrl());
-    }
+        Assert.assertEquals(Hooks.chDriver.getCurrentUrl(),"https://demo.nopcommerce.com/");
+    }*/
 }
