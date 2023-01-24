@@ -35,7 +35,7 @@ public class D01_RegisterationStepDefinition {
         select = new Select (register.DOB_YearPOM());
         select.selectByVisibleText("1988");
 
-        register.EmailPOM().sendKeys("randa3@hotmail.com");
+        register.EmailPOM().sendKeys("randa31@hotmail.com");
         Thread.sleep(2000);
         register.PasswordPOM().sendKeys("Hello123");
         register.ConfirmPasswordPOM().sendKeys("Hello123");

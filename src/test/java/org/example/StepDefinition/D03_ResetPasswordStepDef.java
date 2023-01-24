@@ -16,7 +16,7 @@ public class D03_ResetPasswordStepDef {
 
     @And("enter his email address")
     public void EnterEMail() throws InterruptedException {
-        reset.EmailAddress().sendKeys("randa3@hotmail.com");
+        reset.EmailAddress().sendKeys("randa31@hotmail.com");
         Thread.sleep(2000);
         reset.RecoverBtn().click();
     }

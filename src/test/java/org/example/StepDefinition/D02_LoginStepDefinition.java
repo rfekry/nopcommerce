@@ -19,7 +19,7 @@ public class D02_LoginStepDefinition {
     @When("user enter valid email and password")
     public void ValidData()
     {
-        login.EmailPOM().sendKeys("randa3@hotmail.com");
+        login.EmailPOM().sendKeys("randa31@hotmail.com");
         login.PasswordPOM().sendKeys("Hello123");
     }
 
@@ -52,7 +52,7 @@ public class D02_LoginStepDefinition {
 
     @When("user enter invalid email and password")
     public void userEnterInvalidEmailAndPassword() {
-        login.EmailPOM().sendKeys("randa3@hotmail.com");
+        login.EmailPOM().sendKeys("randa31@hotmail.com");
         login.PasswordPOM().sendKeys("Hello1");
     }
 }

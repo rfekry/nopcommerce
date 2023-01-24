@@ -1,3 +1,4 @@
+@smoke
 Feature: user could select different Categories
 
   Scenario: user can select subcategories
