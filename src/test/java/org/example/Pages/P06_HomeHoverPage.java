@@ -7,10 +7,10 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class P06_HomePage {
+public class P06_HomeHoverPage {
 
     WebDriver chDriver;
-    public P06_HomePage(WebDriver chDriver)
+    public P06_HomeHoverPage(WebDriver chDriver)
     {
         this.chDriver = Hooks.chDriver;
     }

@@ -1,17 +1,15 @@
 package org.example.StepDefinition;
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.example.Pages.P06_HomePage;
-import org.openqa.selenium.By;
+import org.example.Pages.P06_HomeHoverPage;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import java.util.Random;
 
 public class D06_HoverStepDef {
-    P06_HomePage home = new P06_HomePage(Hooks.chDriver);
+    P06_HomeHoverPage home = new P06_HomeHoverPage(Hooks.chDriver);
     String category;
 
     @When("user hover on Categories and select subcategory")
